@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="fetch.js"></script>
+</head>
+<html>
+  <body>
+    <div class="main">
+      <h1>OVHC</h1>
+      <h3>Enter your login credentials</h3>
+      <form id="myForm" onsubmit="return validateForm()">
+        <label for="name">Email:</label><br />
+        <input type="email" id="name" name="email" required /><br />
+        <label for="password">Password:</label><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+        /><br /><br />
+        <button style="cursor: pointer">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

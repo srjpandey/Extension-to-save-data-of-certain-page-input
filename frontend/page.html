@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="checkExtension">AIA</button>
+    <button class="checkExtension">AuN</button>
+    <button class="checkExtension">Allianz</button>
+
+    <script>
+      // Select all buttons with class "checkExtension" and add event listeners to them
+      document.querySelectorAll(".checkExtension").forEach((button) => {
+        button.addEventListener("click", function () {
+          // Extension ID of the Chrome extension you want to check
+          var extensionId = "kkkhffccplnfeccglfgkdbdopejpkgjm";
+
+          // Check if the extension is installed
+          if (chrome.runtime && chrome.runtime?.sendMessage) {
+            chrome.runtime?.sendMessage(
+              extensionId,
+              { message: "ping" },
+              function (response) {
+                if (response && response.pong) {
+                  if (button.textContent === "AIA") {
+                    window.open("_blank", "height=400");
+                  } else if (button.textContent === "Allianz") {
+                    window.open("_blank", "height=400");
+                  } else if (button.textContent === "AuN") {
+                    window.open("_blank", "height=400");
+                  }
+                } else {
+                  alert("Extension is not installed.");
+                }
+              }
+            );
+          } else {
+            alert("Extension is not installed.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
